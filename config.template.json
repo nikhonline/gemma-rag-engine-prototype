@@ -1,0 +1,42 @@
+# Configuration Template for RAG Search Engine
+# Rename this file to config.json and modify as needed
+
+{
+  "ollama": {
+    "url": "http://localhost:11434",
+    "model": "gemma",
+    "timeout": 60,
+    "retry_attempts": 3
+  },
+  "document_processing": {
+    "document_dir": "documents",
+    "supported_formats": [".txt", ".pdf"],
+    "encoding": "utf-8"
+  },
+  "chunking": {
+    "chunk_size": 500,
+    "overlap": 50,
+    "min_chunk_length": 50
+  },
+  "embedding": {
+    "cache_dir": "embeddings",
+    "cache_embeddings": true,
+    "embeddings_file": "embeddings_cache.pkl",
+    "documents_file": "documents_cache.json"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "similarity_threshold": 0.0,
+    "metric": "cosine"
+  },
+  "generation": {
+    "context_limit": 2000,
+    "temperature": 0.7,
+    "max_tokens": 512
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "[{level}] {message}",
+    "show_timestamps": true
+  }
+}
